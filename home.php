@@ -140,7 +140,8 @@
         </div>
         <p>Are substracted from the loan amount</p>
     </div>
-    
+    <script src="https://static.elfsight.com/platform/platform.js" data-use-service-core defer></script>
+<div class="elfsight-app-78e177a2-e6d0-47ce-bc9f-e25212f9dc31"></div>
 </body>
 
 </html>
