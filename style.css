@@ -1,0 +1,150 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    margin: 10px auto;
+
+}
+.first-container {
+    text-align: center;
+    background-color: #0077b6; /* Set the background color */
+    color: #ffffff; /* Set the text color */
+    padding: 20px; /* Add some padding to the container */
+}
+.bank-table {
+    margin: 20px auto;
+    border-collapse: collapse;
+    width: 80%;
+    max-width: 400px;
+}
+
+.bank-table th, .bank-table td {
+    border: 1px solid #ccc;
+    padding: 8px;
+    text-align: center;
+}
+.info-label{
+    font-size: 10px;
+    color:red;
+}
+/* Style the <p> element within the "first-container" */
+.first-container p {
+    text-align: center;
+    font-size: 24px; /* Set the font size */
+    font-weight: bold;
+ /* Set the font weight to bold */
+}
+/* Add styling to the button */
+button {
+    margin: 10px auto;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+  }
+  
+  /* Modal Content/Box */
+  .modal-content {
+    background-color: #fefefe;
+    margin: 15% auto; /* 15% from the top and centered */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%; /* Could be more or less, depending on screen size */
+  }
+
+  /* The Close Button */
+  .close {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+/* Form styles */
+form {
+    text-align: left;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+label {
+    display: block;
+    font-weight: bold;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+    width: 100% !important;
+    padding: 10px 0px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+input[type="submit"] {
+    background-color: #0077b6;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.fee-container{
+    padding: 0px,10px;
+    color: #0077b6;
+    height: 15px;
+    font-size: 10px;
+    margin-bottom: 10px;
+    text-align:left
+}
+input[type="submit"]:hover {
+    background-color: #005b8e;
+}
+#fees-container {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    background-color: #f9f9f9;
+}
+
+.fee {
+    margin: 5px 0;
+}
+
+.fee-description {
+    font-weight: bold;
+}
+
+.fee-amount {
+    color: #007acc; /* Blue color for fee amounts */
+}
