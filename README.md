@@ -39,6 +39,6 @@ To run this project locally, follow these steps:
 1. Clone the repository to your local machine:
 
    ```bash
-   git clone https://github.com/your-username/loan-application.git
+   git clone https://github.com/devshi_deno/loan-application.git
 
   
