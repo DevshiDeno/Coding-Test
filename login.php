@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Authentication successful
         $_SESSION["username"] = $username;
-        header("Location: home.php"); 
+        header("Location: home.php"); // Redirect to the dashboard or another authenticated page
         exit();
     } else {
         // Authentication failed
