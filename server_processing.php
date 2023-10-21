@@ -19,6 +19,7 @@ $json_array = array();
 
 while ($row = $query->fetch_assoc()) {
     $json_item = array(
+        "id" => $row["id"],
         "Borrower_name" => $row["Borrower_name"],
         "Loan_amount" => $row["Loan_amount"],
         "Interest_type" => $row["Interest_type"],
@@ -26,7 +27,7 @@ while ($row = $query->fetch_assoc()) {
         "bank" => $row["bank"],
         "Monthly_Installment" => $row["Monthly_Installment"],
         "start_date" => $row["start_date"],
-      "take_home_amount"=> $row["take_home_amount"],
+        "take_home_amount" => $row["take_home_amount"],
     );
 
     $json_array[] = $json_item;

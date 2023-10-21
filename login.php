@@ -5,7 +5,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST["username"];
     $password = $_POST["password"];
 
-    // Perform user authentication by querying the database (replace with your database logic)
+    // Perform user authentication by querying the database
     $servername = "localhost";
     $database = "loan Calculator";
     $username_db = "root";
@@ -18,7 +18,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Connection failed: " . $conn->connect_error);
     }
 
-    // Perform a query to retrieve user information (adjust your table and column names)
+    // Perform a query to retrieve user information
     $query = $conn->prepare("SELECT * FROM users WHERE admin = ? AND password = ?");
     $query->bind_param("ss", $username, $password);
     $query->execute();
@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if ($result->num_rows > 0) {
         // Authentication successful
         $_SESSION["username"] = $username;
-        header("Location: home.php"); // Redirect to the dashboard or another authenticated page
+        header("Location: home.php"); 
         exit();
     } else {
         // Authentication failed

@@ -20,15 +20,18 @@ $(document).ready(function () {
             { data: 'Monthly_Installment' },
             { data: 'start_date' },
             { data: 'take_home_amount' },
-
-        ],
+            { data: "id",
+                "render": function (data, type, row) {
+                    return '<button data-id="' + row.id + '" class="delete-btn">Delete</button>';
+                }
+            },
+         ],
         dom: 'Bfrtip',
         buttons: [
             'copy', 'csv', 'excel', 'pdf', 'print',
 
         ],
     });
-
 
     // When the user clicks on the button, open the modal
 
@@ -42,7 +45,7 @@ $(document).ready(function () {
 
     // When the user clicks anywhere outside of the modal, close it
     $(window).click(function (event) {
-        if (event.target == modal[0]) { // Check if target is not the modal
+        if (event.target == modal[0]) { 
             modal.css("display", "none");
         }
     });
@@ -50,7 +53,10 @@ $(document).ready(function () {
     // When the user submits the form
     addForm.submit(function (event) {
         event.preventDefault(); // Prevent the default form submission
-
+    
+ 
+        // Serialize the form data
+        var formData = addForm.serialize();
      // Clear the form fields
      $("#borrower_name").val("");
      $("#loan_purpose").val("");
@@ -59,31 +65,41 @@ $(document).ready(function () {
      $("#loan_period").val("");
      $("#bank_Type").val("Bank A");
      $("#frequency_Type").val("Monthly");
-
-        // Serialize the form data
-        var formData = addForm.serialize();
-
-        $.ajax({
-            type: "POST",
-            url: "insert.php", // Change to the appropriate URL
-            data: formData,
-            success: function (response) {
-                // Handle the response, e.g., display a success message
-                console.log("Form submitted successfully.");
-                modal.css("display", "none");
-
-                table.ajax.reload()
-
-                // // Update the DataTable with the new data
-                // DataTable.ajax.reload(); // Reload the DataTable to refresh the table with the new data
-
-                // // Close the modal after a successful submission
-                // modal.css("display", "none");
-            },
-            error: function (xhr, status, error) {
-                // Handle errors, e.g., display an error message
-                console.error("Form submission error: " + error);
-            }
-        });
+        var url = "insert.php"; // Change to the appropriate URL
+    
+        if (url) {
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: formData,
+                success: function (response) {
+                    // Handle the response, e.g., display a success message
+                    console.log("Form submitted successfully.");
+                    modal.css("display", "none");
+                    table.ajax.reload();
+                },
+                error: function (xhr, status, error) {
+                    // Handle errors, e.g., display an error message
+                    console.error("Form submission error: " + error);
+                }
+            });
+        }
     });
+    
+
+    $("#myTable").on("click", ".delete-btn", function () {
+        var id = $(this).data("id");
+        deleteRow(id);
+    });
+
+        function deleteRow(id) {
+            $.ajax({
+                url: "delete.php",
+                type: "POST",
+                data: { id: id },
+                success: function (data) {
+                    table.ajax.reload();
+                }
+            })
+        }
 });

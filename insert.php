@@ -47,7 +47,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // // "Adittional Fees: $fees<br>";
     // echo "Monthly Installment: $monthly_installment";
 
-    // Establish a database connection (make sure you have your database credentials)
+    // Establish a database connection)
     $servername = "localhost";
     $database = "loan Calculator";
     $username = "root";
